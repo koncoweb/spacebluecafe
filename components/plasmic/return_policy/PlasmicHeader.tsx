@@ -169,6 +169,7 @@ function PlasmicHeader__RenderFunc(props: {
                 sty.link__synB
               )}
               component={Link}
+              href={`/`}
               platform={"nextjs"}
             >
               {false ? (
@@ -202,6 +203,7 @@ function PlasmicHeader__RenderFunc(props: {
                 sty.link__cFkCg
               )}
               component={Link}
+              href={`/menu`}
               platform={"nextjs"}
             >
               {false ? (
