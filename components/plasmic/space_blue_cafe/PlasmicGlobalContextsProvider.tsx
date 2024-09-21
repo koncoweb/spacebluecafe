@@ -27,13 +27,13 @@ export default function GlobalContextsProvider(
         cmsCredentialsProviderProps &&
         "databaseId" in cmsCredentialsProviderProps
           ? cmsCredentialsProviderProps.databaseId!
-          : undefined
+          : "jDq999p1R6ksEPKDMRBkzZ"
       }
       databaseToken={
         cmsCredentialsProviderProps &&
         "databaseToken" in cmsCredentialsProviderProps
           ? cmsCredentialsProviderProps.databaseToken!
-          : undefined
+          : "sXPbOf2YeQNl8TkPvVFRvylRYQbcTsnXxS2gUGoLaaFI8ALOTa0qZLOTpq1mXVpkajTCKNzx9QNESiTpw"
       }
       host={
         cmsCredentialsProviderProps && "host" in cmsCredentialsProviderProps

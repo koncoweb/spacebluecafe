@@ -60,10 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import Header from "../../Header"; // plasmic-import: 1JDkW8IXziFz/component
+import { CmsQueryRepeater } from "@plasmicpkgs/plasmic-cms";
+import Product from "../../Product"; // plasmic-import: LE7wMRlZ2dz6/component
 import Button from "../../Button"; // plasmic-import: D4ZoDZu3P2uH/component
 import TextInput from "../../TextInput"; // plasmic-import: uqzitSMnAOoM/component
 import MenuFooterSpaceblue from "../../MenuFooterSpaceblue"; // plasmic-import: Tfk_MHYXQ-8l/component
-import { CmsQueryRepeater } from "@plasmicpkgs/plasmic-cms";
 import { CmsRowField } from "@plasmicpkgs/plasmic-cms";
 
 import { useScreenVariants as useScreenVariants_8LhMaSoWc2XY } from "../return_policy/PlasmicGlobalVariant__Screen"; // plasmic-import: 8LhMaSOWc2xY/globalVariant
@@ -94,12 +95,12 @@ export type PlasmicMenu__OverridesType = {
   root?: Flex__<"div">;
   header?: Flex__<typeof Header>;
   h1?: Flex__<"h1">;
+  product?: Flex__<typeof Product>;
   textInput?: Flex__<typeof TextInput>;
   textInput2?: Flex__<typeof TextInput>;
   menuFooterSpaceblue?: Flex__<typeof MenuFooterSpaceblue>;
   h3?: Flex__<"h3">;
   textInput3?: Flex__<typeof TextInput>;
-  cmsDataFetcher?: Flex__<typeof CmsQueryRepeater>;
   cmsEntryField?: Flex__<typeof CmsRowField>;
 };
 
@@ -390,33 +391,121 @@ function PlasmicMenu__RenderFunc(props: {
             </div>
           </section>
           <section className={classNames(projectcss.all, sty.section__pcU25)}>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___40Fi5)}
+            <CmsQueryRepeater
+              className={classNames(
+                "__wab_instance",
+                sty.cmsDataFetcher___8Rn7B
+              )}
+              desc={false}
+              emptyMessage={
+                <DataCtxReader__>
+                  {$ctx => (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___39E5
+                      )}
+                    >
+                      {"No matching published entries found."}
+                    </div>
+                  )}
+                </DataCtxReader__>
+              }
+              forceEmptyState={false}
+              forceLoadingState={false}
+              limit={0}
+              loadingMessage={
+                <DataCtxReader__>
+                  {$ctx => (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__agUxY
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return " memuat menu...";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "Loading...";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  )}
+                </DataCtxReader__>
+              }
+              mode={"rows"}
+              noAutoRepeat={false}
+              noLayout={false}
+              useDraft={false}
             >
-              <h2
-                className={classNames(
-                  projectcss.all,
-                  projectcss.h2,
-                  projectcss.__wab_text,
-                  sty.h2___5YxM1
+              <DataCtxReader__>
+                {$ctx => (
+                  <Product
+                    data-plasmic-name={"product"}
+                    data-plasmic-override={overrides.product}
+                    className={classNames("__wab_instance", sty.product)}
+                    slot={
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $ctx.plasmicCmsSpacebluemenuItem.data.nama;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "Product title";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    }
+                  >
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img__kFrIs)}
+                      displayHeight={"auto"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"auto"}
+                      loading={"lazy"}
+                      src={(() => {
+                        try {
+                          return $ctx.plasmicCmsSpacebluemenuItem.data.foto.url;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return {
+                              src: "/plasmic/return_policy/images/neckties2103471920Jpg.jpg",
+                              fullWidth: 1920,
+                              fullHeight: 1280,
+                              aspectRatio: undefined
+                            };
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+                  </Product>
                 )}
-              >
-                {"Space Blue Cafe"}
-              </h2>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__zIv2
-                )}
-              >
-                {
-                  "Berawal dengan tekad menjadikan space blue sebagai tempat yang nyaman bagi konsumen kami untuk sekedar melepas lelah, berkumpul bersama teman dan keluarga serta menikmati hidangan kuliner , kami mendirikan space blue pada tahun 2021. Space Blue terus berkembang sebagai Cafe terkemuka di Kota Batang"
-                }
-              </div>
-            </Stack__>
+              </DataCtxReader__>
+            </CmsQueryRepeater>
           </section>
           <section className={classNames(projectcss.all, sty.section__cTy8L)}>
             <Stack__
@@ -836,9 +925,7 @@ function PlasmicMenu__RenderFunc(props: {
             </div>
           </Stack__>
           <CmsQueryRepeater
-            data-plasmic-name={"cmsDataFetcher"}
-            data-plasmic-override={overrides.cmsDataFetcher}
-            className={classNames("__wab_instance", sty.cmsDataFetcher)}
+            className={classNames("__wab_instance", sty.cmsDataFetcher__h7MOq)}
             desc={false}
             emptyMessage={
               <DataCtxReader__>
@@ -907,22 +994,22 @@ const PlasmicDescendants = {
     "root",
     "header",
     "h1",
+    "product",
     "textInput",
     "textInput2",
     "menuFooterSpaceblue",
     "h3",
     "textInput3",
-    "cmsDataFetcher",
     "cmsEntryField"
   ],
   header: ["header"],
   h1: ["h1"],
+  product: ["product"],
   textInput: ["textInput"],
   textInput2: ["textInput2"],
   menuFooterSpaceblue: ["menuFooterSpaceblue"],
   h3: ["h3"],
   textInput3: ["textInput3"],
-  cmsDataFetcher: ["cmsDataFetcher", "cmsEntryField"],
   cmsEntryField: ["cmsEntryField"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -932,12 +1019,12 @@ type NodeDefaultElementType = {
   root: "div";
   header: typeof Header;
   h1: "h1";
+  product: typeof Product;
   textInput: typeof TextInput;
   textInput2: typeof TextInput;
   menuFooterSpaceblue: typeof MenuFooterSpaceblue;
   h3: "h3";
   textInput3: typeof TextInput;
-  cmsDataFetcher: typeof CmsQueryRepeater;
   cmsEntryField: typeof CmsRowField;
 };
 
@@ -1003,12 +1090,12 @@ export const PlasmicMenu = Object.assign(
     // Helper components rendering sub-elements
     header: makeNodeComponent("header"),
     h1: makeNodeComponent("h1"),
+    product: makeNodeComponent("product"),
     textInput: makeNodeComponent("textInput"),
     textInput2: makeNodeComponent("textInput2"),
     menuFooterSpaceblue: makeNodeComponent("menuFooterSpaceblue"),
     h3: makeNodeComponent("h3"),
     textInput3: makeNodeComponent("textInput3"),
-    cmsDataFetcher: makeNodeComponent("cmsDataFetcher"),
     cmsEntryField: makeNodeComponent("cmsEntryField"),
 
     // Metadata about props expected for PlasmicMenu

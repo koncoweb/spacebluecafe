@@ -74,22 +74,26 @@ export const PlasmicProduct__VariantProps = new Array<VariantPropType>();
 export type PlasmicProduct__ArgsType = {
   children?: React.ReactNode;
   slot?: React.ReactNode;
+  slot2?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicProduct__ArgsType;
 export const PlasmicProduct__ArgProps = new Array<ArgPropType>(
   "children",
-  "slot"
+  "slot",
+  "slot2"
 );
 
 export type PlasmicProduct__OverridesType = {
   root?: Flex__<"div">;
   freeBox?: Flex__<"div">;
   h3?: Flex__<"h3">;
+  label?: Flex__<"label">;
 };
 
 export interface DefaultProductProps {
   children?: React.ReactNode;
   slot?: React.ReactNode;
+  slot2?: React.ReactNode;
   className?: string;
 }
 
@@ -182,19 +186,68 @@ function PlasmicProduct__RenderFunc(props: {
           className={classNames(projectcss.all, projectcss.h3, sty.h3)}
         >
           {renderPlasmicSlot({
-            defaultContents: "Product title",
+            defaultContents: (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $ctx.plasmicCmsSpacebluemenuItem.data.nama;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "Product title";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            ),
             value: args.slot
           })}
         </h3>
+        <label
+          data-plasmic-name={"label"}
+          data-plasmic-override={overrides.label}
+          className={classNames(projectcss.all, sty.label)}
+        >
+          {renderPlasmicSlot({
+            defaultContents: (
+              <div
+                className={projectcss.__wab_expr_html_text}
+                dangerouslySetInnerHTML={{
+                  __html: (() => {
+                    try {
+                      return (
+                        "Rp. " + $ctx.plasmicCmsSpacebluemenuItem.data.harga
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "harga";
+                      }
+                      throw e;
+                    }
+                  })()
+                }}
+              />
+            ),
+            value: args.slot2,
+            className: classNames(sty.slotTargetSlot2)
+          })}
+        </label>
       </Stack__>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox", "h3"],
-  freeBox: ["freeBox", "h3"],
-  h3: ["h3"]
+  root: ["root", "freeBox", "h3", "label"],
+  freeBox: ["freeBox", "h3", "label"],
+  h3: ["h3"],
+  label: ["label"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -203,6 +256,7 @@ type NodeDefaultElementType = {
   root: "div";
   freeBox: "div";
   h3: "h3";
+  label: "label";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -267,6 +321,7 @@ export const PlasmicProduct = Object.assign(
     // Helper components rendering sub-elements
     freeBox: makeNodeComponent("freeBox"),
     h3: makeNodeComponent("h3"),
+    label: makeNodeComponent("label"),
 
     // Metadata about props expected for PlasmicProduct
     internalVariantProps: PlasmicProduct__VariantProps,
