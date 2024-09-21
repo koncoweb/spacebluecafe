@@ -589,58 +589,79 @@ function PlasmicMenuDetail__RenderFunc(props: {
                             }}
                           />
                         </div>
-                        <Button
-                          className={classNames(
-                            "__wab_instance",
-                            sty.button__fdmU
-                          )}
-                          onClick={async event => {
-                            const $steps = {};
+                        {(
+                          hasVariant(globalVariants, "screen", "mobileOnly")
+                            ? (() => {
+                                try {
+                                  return $ctx.params.meja !== undefined;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            : true
+                        ) ? (
+                          <Button
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button__fdmU
+                            )}
+                            onClick={async event => {
+                              const $steps = {};
 
-                            $steps["goToPage"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    destination: (() => {
-                                      try {
-                                        return `https://api.whatsapp.com/send?phone=6287796454754&text=meja%20${$ctx.params.meja}%20pesan%20${$ctx.params.menu}`;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "https://api.whatsapp.com/send?phone=6287796454754&text=meja%20(nomormeja)%20pesan%20%20(pesanan)";
+                              $steps["goToPage"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      destination: (() => {
+                                        try {
+                                          return `https://api.whatsapp.com/send?phone=6287796454754&text=meja%20${$ctx.params.meja}%20pesan%20${$ctx.params.menu}`;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "https://api.whatsapp.com/send?phone=6287796454754&text=meja%20(nomormeja)%20pesan%20%20(pesanan)";
+                                          }
+                                          throw e;
                                         }
-                                        throw e;
+                                      })()
+                                    };
+                                    return (({ destination }) => {
+                                      if (
+                                        typeof destination === "string" &&
+                                        destination.startsWith("#")
+                                      ) {
+                                        document
+                                          .getElementById(destination.substr(1))
+                                          .scrollIntoView({
+                                            behavior: "smooth"
+                                          });
+                                      } else {
+                                        __nextRouter?.push(destination);
                                       }
-                                    })()
-                                  };
-                                  return (({ destination }) => {
-                                    if (
-                                      typeof destination === "string" &&
-                                      destination.startsWith("#")
-                                    ) {
-                                      document
-                                        .getElementById(destination.substr(1))
-                                        .scrollIntoView({ behavior: "smooth" });
-                                    } else {
-                                      __nextRouter?.push(destination);
-                                    }
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["goToPage"] != null &&
-                              typeof $steps["goToPage"] === "object" &&
-                              typeof $steps["goToPage"].then === "function"
-                            ) {
-                              $steps["goToPage"] = await $steps["goToPage"];
-                            }
-                          }}
-                          showStartIcon={true}
-                        >
-                          {"Pesan"}
-                        </Button>
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["goToPage"] != null &&
+                                typeof $steps["goToPage"] === "object" &&
+                                typeof $steps["goToPage"].then === "function"
+                              ) {
+                                $steps["goToPage"] = await $steps["goToPage"];
+                              }
+                            }}
+                            showStartIcon={true}
+                          >
+                            {"Pesan"}
+                          </Button>
+                        ) : null}
                       </Stack__>
                     </div>
                   </div>
