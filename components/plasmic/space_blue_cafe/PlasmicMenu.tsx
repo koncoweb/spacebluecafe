@@ -647,7 +647,7 @@ function PlasmicMenu__RenderFunc(props: {
                                   variablePath: ["meja"]
                                 },
                                 operation: 0,
-                                value: $state.meja
+                                value: $ctx.query.meja
                               };
                               return (({
                                 variable,
