@@ -61,6 +61,16 @@
       }
     },
     {
+      "name": "huruf30",
+      "type": "fontsize",
+      "value": "30px",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "n5xwmNeXPRzvTsuicaWWu3",
+        "id": "HsBKdXa5tWV1"
+      }
+    },
+    {
       "name": "white",
       "type": "color",
       "value": "#FFFFFF",
