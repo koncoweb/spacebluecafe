@@ -605,7 +605,24 @@ function PlasmicMenuDetail__RenderFunc(props: {
                                   throw e;
                                 }
                               })()
-                            : true
+                            : (() => {
+                                try {
+                                  return (
+                                    $ctx.params.meja !== "undefined" &&
+                                    $ctx.params.meja !== "" &&
+                                    $ctx.params.meja !== null
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })()
                         ) ? (
                           <Button
                             className={classNames(
@@ -655,6 +672,44 @@ function PlasmicMenuDetail__RenderFunc(props: {
                                 typeof $steps["goToPage"].then === "function"
                               ) {
                                 $steps["goToPage"] = await $steps["goToPage"];
+                              }
+
+                              $steps["updateTextInput3Value"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["textInput3", "value"]
+                                      },
+                                      operation: 0
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateTextInput3Value"] != null &&
+                                typeof $steps["updateTextInput3Value"] ===
+                                  "object" &&
+                                typeof $steps["updateTextInput3Value"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateTextInput3Value"] = await $steps[
+                                  "updateTextInput3Value"
+                                ];
                               }
                             }}
                             showStartIcon={true}
