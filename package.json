@@ -11,6 +11,7 @@
   "dependencies": {
     "@plasmicapp/cli": "^0.1.331",
     "@plasmicapp/react-web": "^0.2.350",
+    "@plasmicpkgs/plasmic-cms": "^0.0.269",
     "next": "14.2.9",
     "react": "^18",
     "react-dom": "^18"

@@ -13,6 +13,15 @@
   --plasmic-token-brown: var(--token-a1Cc_ThJYsBt);
   --token-RgNtz70TDzdt: 80px;
   --plasmic-token-h-1: var(--token-RgNtz70TDzdt);
+  --token-eXZKbP_9r91h: 16px;
+  --plasmic-token-huruf-14: var(--token-eXZKbP_9r91h);
+}
+
+@media (min-width: 0px) and (max-width: 768px) {
+  .plasmic_tokens {
+    --token-eXZKbP_9r91h: 14px;
+    --plasmic-token-huruf-14: var(--token-eXZKbP_9r91h);
+  }
 }
 
 .plasmic_tokens {

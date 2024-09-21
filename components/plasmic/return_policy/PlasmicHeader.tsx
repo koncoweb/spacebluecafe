@@ -218,12 +218,82 @@ function PlasmicHeader__RenderFunc(props: {
                 )}
               >
                 {hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? "Place"
-                  : "Catalog"}
+                  ? "Menu"
+                  : "Menu"}
               </div>
               {false ? (
                 <IconIcon
                   className={classNames(projectcss.all, sty.svg__xDqHk)}
+                  role={"img"}
+                />
+              ) : null}
+            </Stack__>
+            <Stack__
+              as={PlasmicLink__}
+              hasGap={true}
+              className={classNames(
+                projectcss.all,
+                projectcss.a,
+                sty.link__f6CEx
+              )}
+              component={Link}
+              platform={"nextjs"}
+            >
+              {false ? (
+                <IconIcon
+                  className={classNames(projectcss.all, sty.svg__q14F0)}
+                  role={"img"}
+                />
+              ) : null}
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__g9Zz9
+                )}
+              >
+                {hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? "Location"
+                  : "Location"}
+              </div>
+              {false ? (
+                <IconIcon
+                  className={classNames(projectcss.all, sty.svg__uLbjQ)}
+                  role={"img"}
+                />
+              ) : null}
+            </Stack__>
+            <Stack__
+              as={PlasmicLink__}
+              hasGap={true}
+              className={classNames(
+                projectcss.all,
+                projectcss.a,
+                sty.link__f4K8W
+              )}
+              component={Link}
+              platform={"nextjs"}
+            >
+              {false ? (
+                <IconIcon
+                  className={classNames(projectcss.all, sty.svg___5Vour)}
+                  role={"img"}
+                />
+              ) : null}
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__b8GeW
+                )}
+              >
+                {hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? "Contact"
+                  : "Contact"}
+              </div>
+              {false ? (
+                <IconIcon
+                  className={classNames(projectcss.all, sty.svg__hScWf)}
                   role={"img"}
                 />
               ) : null}
