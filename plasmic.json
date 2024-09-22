@@ -213,7 +213,7 @@
           "projectId": "n5xwmNeXPRzvTsuicaWWu3",
           "renderModuleFilePath": "plasmic/space_blue_cafe/PlasmicMenuDetail.tsx",
           "importSpec": {
-            "modulePath": "../pages/menu/detail/[menu]/[meja].tsx"
+            "modulePath": "../pages/menu/[kategori]/[menu]/[meja].tsx"
           },
           "cssFilePath": "plasmic/space_blue_cafe/PlasmicMenuDetail.module.css",
           "scheme": "blackbox",

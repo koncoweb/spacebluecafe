@@ -712,7 +712,23 @@ function PlasmicMenu__RenderFunc(props: {
                         $steps["goToMenuDetail"] = true
                           ? (() => {
                               const actionArgs = {
-                                destination: `/menu/detail/${(() => {
+                                destination: `/menu/${(() => {
+                                  try {
+                                    return encodeURIComponent(
+                                      $ctx.plasmicCmsSpacebluemenuItem.data
+                                        .kategori
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}/${(() => {
                                   try {
                                     return $ctx.plasmicCmsSpacebluemenuItem.data
                                       .nama;

@@ -62,6 +62,7 @@ import {
 import Header from "../../Header"; // plasmic-import: 1JDkW8IXziFz/component
 import { CmsQueryRepeater } from "@plasmicpkgs/plasmic-cms";
 import Button from "../../Button"; // plasmic-import: D4ZoDZu3P2uH/component
+import { PlasmicHead } from "@plasmicapp/react-web";
 import MenuFooterSpaceblue from "../../MenuFooterSpaceblue"; // plasmic-import: Tfk_MHYXQ-8l/component
 import TextInput from "../../TextInput"; // plasmic-import: uqzitSMnAOoM/component
 
@@ -92,6 +93,7 @@ export const PlasmicMenuDetail__ArgProps = new Array<ArgPropType>();
 export type PlasmicMenuDetail__OverridesType = {
   root?: Flex__<"div">;
   header?: Flex__<typeof Header>;
+  pageMetadataOverride?: Flex__<typeof PlasmicHead>;
   menuFooterSpaceblue?: Flex__<typeof MenuFooterSpaceblue>;
   h3?: Flex__<"h3">;
   textInput3?: Flex__<typeof TextInput>;
@@ -439,129 +441,109 @@ function PlasmicMenuDetail__RenderFunc(props: {
             >
               <DataCtxReader__>
                 {$ctx => (
-                  <div
-                    className={classNames(projectcss.all, sty.columns__lSIs8)}
-                  >
+                  <React.Fragment>
                     <div
-                      className={classNames(projectcss.all, sty.column__v8WvQ)}
+                      className={classNames(projectcss.all, sty.columns__lSIs8)}
                     >
-                      <PlasmicImg__
-                        alt={(() => {
-                          try {
-                            return $ctx.plasmicCmsSpacebluemenuItem.data.foto
-                              .name;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}
-                        className={classNames(sty.img__fdiHz)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        loading={"lazy"}
-                        src={(() => {
-                          try {
-                            return $ctx.plasmicCmsSpacebluemenuItem.data.foto
-                              .url;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}
-                        width={"100%"}
-                      />
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.column__jDyL4)}
-                    >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox___5RgZp
+                          sty.column__v8WvQ
                         )}
                       >
-                        <h1
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.h1,
-                            projectcss.__wab_text,
-                            sty.h1__zKan9
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $ctx.plasmicCmsSpacebluemenuItem.data
-                                  .nama;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "You won't believe what happens next.";
-                                }
-                                throw e;
+                        <PlasmicImg__
+                          alt={(() => {
+                            try {
+                              return $ctx.plasmicCmsSpacebluemenuItem.data.foto
+                                .name;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
                               }
-                            })()}
-                          </React.Fragment>
-                        </h1>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text___5JyWn
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  "Rp. " +
-                                  $ctx.plasmicCmsSpacebluemenuItem.data.harga
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
+                              throw e;
+                            }
+                          })()}
+                          className={classNames(sty.img__fdiHz)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          loading={"lazy"}
+                          src={(() => {
+                            try {
+                              return $ctx.plasmicCmsSpacebluemenuItem.data.foto
+                                .url;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
                               }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                        <div
+                              throw e;
+                            }
+                          })()}
+                          width={"100%"}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.column__jDyL4
+                        )}
+                      >
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__irLb
+                            sty.freeBox___5RgZp
                           )}
                         >
-                          <div
-                            className={projectcss.__wab_expr_html_text}
-                            dangerouslySetInnerHTML={{
-                              __html: (() => {
+                          <h1
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h1,
+                              projectcss.__wab_text,
+                              sty.h1__zKan9
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
                                 try {
-                                  return $ctx.plasmicCmsSpacebluemenuItem.data.keterangan.replace(
-                                    /<[^>]*>/g,
-                                    ""
+                                  return $ctx.plasmicCmsSpacebluemenuItem.data
+                                    .nama;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "You won't believe what happens next.";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </h1>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___5JyWn
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return (
+                                    "Rp. " +
+                                    $ctx.plasmicCmsSpacebluemenuItem.data.harga
                                   );
                                 } catch (e) {
                                   if (
@@ -573,148 +555,232 @@ function PlasmicMenuDetail__RenderFunc(props: {
                                   }
                                   throw e;
                                 }
-                              })()
-                            }}
-                          />
-                        </div>
-                        {(
-                          hasVariant(globalVariants, "screen", "mobileOnly")
-                            ? (() => {
-                                try {
-                                  return (
-                                    $ctx.params.meja !== undefined &&
-                                    $ctx.params.meja === "" &&
-                                    $ctx.params.meja === "value" &&
-                                    $ctx.params.meja === null &&
-                                    $ctx.params.meja === "0"
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return true;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            : (() => {
-                                try {
-                                  return (
-                                    $ctx.params.meja !== "undefined" &&
-                                    $ctx.params.meja !== "" &&
-                                    $ctx.params.meja !== null &&
-                                    $ctx.params.meja !== "0"
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return true;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                        ) ? (
-                          <Button
+                              })()}
+                            </React.Fragment>
+                          </div>
+                          <div
                             className={classNames(
-                              "__wab_instance",
-                              sty.button__fdmU
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__irLb
                             )}
-                            onClick={async event => {
-                              const $steps = {};
-
-                              $steps["goToPage"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      destination: (() => {
-                                        try {
-                                          return `https://api.whatsapp.com/send?phone=6287796454754&text=meja%20${$ctx.params.meja}%20pesan%20${$ctx.params.menu}`;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "https://api.whatsapp.com/send?phone=6287796454754&text=meja%20(nomormeja)%20pesan%20%20(pesanan)";
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    };
-                                    return (({ destination }) => {
-                                      if (
-                                        typeof destination === "string" &&
-                                        destination.startsWith("#")
-                                      ) {
-                                        document
-                                          .getElementById(destination.substr(1))
-                                          .scrollIntoView({
-                                            behavior: "smooth"
-                                          });
-                                      } else {
-                                        __nextRouter?.push(destination);
-                                      }
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["goToPage"] != null &&
-                                typeof $steps["goToPage"] === "object" &&
-                                typeof $steps["goToPage"].then === "function"
-                              ) {
-                                $steps["goToPage"] = await $steps["goToPage"];
-                              }
-
-                              $steps["updateTextInput3Value"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["textInput3", "value"]
-                                      },
-                                      operation: 0
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateTextInput3Value"] != null &&
-                                typeof $steps["updateTextInput3Value"] ===
-                                  "object" &&
-                                typeof $steps["updateTextInput3Value"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateTextInput3Value"] = await $steps[
-                                  "updateTextInput3Value"
-                                ];
-                              }
-                            }}
-                            showStartIcon={true}
                           >
-                            {"Pesan"}
-                          </Button>
-                        ) : null}
-                      </Stack__>
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: (() => {
+                                  try {
+                                    return $ctx.plasmicCmsSpacebluemenuItem.data.keterangan.replace(
+                                      /<[^>]*>/g,
+                                      ""
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              }}
+                            />
+                          </div>
+                          {(
+                            hasVariant(globalVariants, "screen", "mobileOnly")
+                              ? (() => {
+                                  try {
+                                    return (
+                                      $ctx.params.meja !== undefined &&
+                                      $ctx.params.meja === "" &&
+                                      $ctx.params.meja === "value" &&
+                                      $ctx.params.meja === null &&
+                                      $ctx.params.meja === "0"
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return true;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              : (() => {
+                                  try {
+                                    return (
+                                      $ctx.params.meja !== "undefined" &&
+                                      $ctx.params.meja !== "" &&
+                                      $ctx.params.meja !== null &&
+                                      $ctx.params.meja !== "0"
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return true;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                          ) ? (
+                            <Button
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button__fdmU
+                              )}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["goToPage"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        destination: (() => {
+                                          try {
+                                            return `https://api.whatsapp.com/send?phone=6287796454754&text=meja%20${$ctx.params.meja}%20pesan%20${$ctx.params.menu}`;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "https://api.whatsapp.com/send?phone=6287796454754&text=meja%20(nomormeja)%20pesan%20%20(pesanan)";
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      };
+                                      return (({ destination }) => {
+                                        if (
+                                          typeof destination === "string" &&
+                                          destination.startsWith("#")
+                                        ) {
+                                          document
+                                            .getElementById(
+                                              destination.substr(1)
+                                            )
+                                            .scrollIntoView({
+                                              behavior: "smooth"
+                                            });
+                                        } else {
+                                          __nextRouter?.push(destination);
+                                        }
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["goToPage"] != null &&
+                                  typeof $steps["goToPage"] === "object" &&
+                                  typeof $steps["goToPage"].then === "function"
+                                ) {
+                                  $steps["goToPage"] = await $steps["goToPage"];
+                                }
+
+                                $steps["updateTextInput3Value"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["textInput3", "value"]
+                                        },
+                                        operation: 0
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateTextInput3Value"] != null &&
+                                  typeof $steps["updateTextInput3Value"] ===
+                                    "object" &&
+                                  typeof $steps["updateTextInput3Value"]
+                                    .then === "function"
+                                ) {
+                                  $steps["updateTextInput3Value"] =
+                                    await $steps["updateTextInput3Value"];
+                                }
+                              }}
+                              showStartIcon={true}
+                            >
+                              {"Pesan"}
+                            </Button>
+                          ) : null}
+                        </Stack__>
+                      </div>
                     </div>
-                  </div>
+                    <PlasmicHead
+                      data-plasmic-name={"pageMetadataOverride"}
+                      data-plasmic-override={overrides.pageMetadataOverride}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.pageMetadataOverride
+                      )}
+                      description={(() => {
+                        try {
+                          return (
+                            "menu " +
+                            $ctx.params.menu +
+                            " di cafe space blue Batang bisa kamu pesan sekarang "
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      image={(() => {
+                        try {
+                          return undefined;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      title={(() => {
+                        try {
+                          return (
+                            $ctx.params.menu + " di Batang - Space Blue Cafe"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+                  </React.Fragment>
                 )}
               </DataCtxReader__>
             </CmsQueryRepeater>
@@ -795,7 +861,7 @@ function PlasmicMenuDetail__RenderFunc(props: {
                         $steps["goToMenuDetail"] = true
                           ? (() => {
                               const actionArgs = {
-                                destination: `/menu/detail/${(() => {
+                                destination: `/menu/[kategori]/${(() => {
                                   try {
                                     return $ctx.plasmicCmsSpacebluemenuItem.data
                                       .nama;
@@ -1162,8 +1228,16 @@ function PlasmicMenuDetail__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "header", "menuFooterSpaceblue", "h3", "textInput3"],
+  root: [
+    "root",
+    "header",
+    "pageMetadataOverride",
+    "menuFooterSpaceblue",
+    "h3",
+    "textInput3"
+  ],
   header: ["header"],
+  pageMetadataOverride: ["pageMetadataOverride"],
   menuFooterSpaceblue: ["menuFooterSpaceblue"],
   h3: ["h3"],
   textInput3: ["textInput3"]
@@ -1174,6 +1248,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   header: typeof Header;
+  pageMetadataOverride: typeof PlasmicHead;
   menuFooterSpaceblue: typeof MenuFooterSpaceblue;
   h3: "h3";
   textInput3: typeof TextInput;
@@ -1240,6 +1315,7 @@ export const PlasmicMenuDetail = Object.assign(
   {
     // Helper components rendering sub-elements
     header: makeNodeComponent("header"),
+    pageMetadataOverride: makeNodeComponent("pageMetadataOverride"),
     menuFooterSpaceblue: makeNodeComponent("menuFooterSpaceblue"),
     h3: makeNodeComponent("h3"),
     textInput3: makeNodeComponent("textInput3"),

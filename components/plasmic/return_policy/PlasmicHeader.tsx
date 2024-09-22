@@ -155,152 +155,166 @@ function PlasmicHeader__RenderFunc(props: {
         className={classNames(projectcss.all, sty.columns)}
       >
         <div className={classNames(projectcss.all, sty.column__edLTf)}>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__pxsrS)}
-          >
+          {(() => {
+            try {
+              return $ctx.query.meja === "0";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
             <Stack__
-              as={PlasmicLink__}
+              as={"div"}
               hasGap={true}
-              className={classNames(
-                projectcss.all,
-                projectcss.a,
-                sty.link__synB
-              )}
-              component={Link}
-              href={`/`}
-              platform={"nextjs"}
+              className={classNames(projectcss.all, sty.freeBox__pxsrS)}
             >
-              {false ? (
-                <IconIcon
-                  className={classNames(projectcss.all, sty.svg___0PCzv)}
-                  role={"img"}
-                />
-              ) : null}
-              <div
+              <Stack__
+                as={PlasmicLink__}
+                hasGap={true}
                 className={classNames(
                   projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__c7T2
+                  projectcss.a,
+                  sty.link__synB
                 )}
+                component={Link}
+                href={`/`}
+                platform={"nextjs"}
               >
-                {"Home"}
-              </div>
-              {false ? (
-                <IconIcon
-                  className={classNames(projectcss.all, sty.svg__rE0V)}
-                  role={"img"}
-                />
-              ) : null}
-            </Stack__>
-            <Stack__
-              as={PlasmicLink__}
-              hasGap={true}
-              className={classNames(
-                projectcss.all,
-                projectcss.a,
-                sty.link__cFkCg
-              )}
-              component={Link}
-              href={`/menu`}
-              platform={"nextjs"}
-            >
-              {false ? (
-                <IconIcon
-                  className={classNames(projectcss.all, sty.svg__usYmj)}
-                  role={"img"}
-                />
-              ) : null}
-              <div
+                {false ? (
+                  <IconIcon
+                    className={classNames(projectcss.all, sty.svg___0PCzv)}
+                    role={"img"}
+                  />
+                ) : null}
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__c7T2
+                  )}
+                >
+                  {"Home"}
+                </div>
+                {false ? (
+                  <IconIcon
+                    className={classNames(projectcss.all, sty.svg__rE0V)}
+                    role={"img"}
+                  />
+                ) : null}
+              </Stack__>
+              <Stack__
+                as={PlasmicLink__}
+                hasGap={true}
                 className={classNames(
                   projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__qtXNe
+                  projectcss.a,
+                  sty.link__cFkCg
                 )}
+                component={Link}
+                href={`/menu`}
+                platform={"nextjs"}
               >
-                {hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? "Menu"
-                  : "Menu"}
-              </div>
-              {false ? (
-                <IconIcon
-                  className={classNames(projectcss.all, sty.svg__xDqHk)}
-                  role={"img"}
-                />
-              ) : null}
-            </Stack__>
-            <Stack__
-              as={PlasmicLink__}
-              hasGap={true}
-              className={classNames(
-                projectcss.all,
-                projectcss.a,
-                sty.link__f6CEx
-              )}
-              component={Link}
-              platform={"nextjs"}
-            >
-              {false ? (
-                <IconIcon
-                  className={classNames(projectcss.all, sty.svg__q14F0)}
-                  role={"img"}
-                />
-              ) : null}
-              <div
+                {false ? (
+                  <IconIcon
+                    className={classNames(projectcss.all, sty.svg__usYmj)}
+                    role={"img"}
+                  />
+                ) : null}
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__qtXNe
+                  )}
+                >
+                  {hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? "Menu"
+                    : "Menu"}
+                </div>
+                {false ? (
+                  <IconIcon
+                    className={classNames(projectcss.all, sty.svg__xDqHk)}
+                    role={"img"}
+                  />
+                ) : null}
+              </Stack__>
+              <Stack__
+                as={PlasmicLink__}
+                hasGap={true}
                 className={classNames(
                   projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__g9Zz9
+                  projectcss.a,
+                  sty.link__f6CEx
                 )}
+                component={Link}
+                platform={"nextjs"}
               >
-                {hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? "Location"
-                  : "Location"}
-              </div>
-              {false ? (
-                <IconIcon
-                  className={classNames(projectcss.all, sty.svg__uLbjQ)}
-                  role={"img"}
-                />
-              ) : null}
-            </Stack__>
-            <Stack__
-              as={PlasmicLink__}
-              hasGap={true}
-              className={classNames(
-                projectcss.all,
-                projectcss.a,
-                sty.link__f4K8W
-              )}
-              component={Link}
-              platform={"nextjs"}
-            >
-              {false ? (
-                <IconIcon
-                  className={classNames(projectcss.all, sty.svg___5Vour)}
-                  role={"img"}
-                />
-              ) : null}
-              <div
+                {false ? (
+                  <IconIcon
+                    className={classNames(projectcss.all, sty.svg__q14F0)}
+                    role={"img"}
+                  />
+                ) : null}
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__g9Zz9
+                  )}
+                >
+                  {hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? "Location"
+                    : "Location"}
+                </div>
+                {false ? (
+                  <IconIcon
+                    className={classNames(projectcss.all, sty.svg__uLbjQ)}
+                    role={"img"}
+                  />
+                ) : null}
+              </Stack__>
+              <Stack__
+                as={PlasmicLink__}
+                hasGap={true}
                 className={classNames(
                   projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__b8GeW
+                  projectcss.a,
+                  sty.link__f4K8W
                 )}
+                component={Link}
+                platform={"nextjs"}
               >
-                {hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? "Contact"
-                  : "Contact"}
-              </div>
-              {false ? (
-                <IconIcon
-                  className={classNames(projectcss.all, sty.svg__hScWf)}
-                  role={"img"}
-                />
-              ) : null}
+                {false ? (
+                  <IconIcon
+                    className={classNames(projectcss.all, sty.svg___5Vour)}
+                    role={"img"}
+                  />
+                ) : null}
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__b8GeW
+                  )}
+                >
+                  {hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? "Contact"
+                    : "Contact"}
+                </div>
+                {false ? (
+                  <IconIcon
+                    className={classNames(projectcss.all, sty.svg__hScWf)}
+                    role={"img"}
+                  />
+                ) : null}
+              </Stack__>
             </Stack__>
-          </Stack__>
+          ) : null}
         </div>
         <div className={classNames(projectcss.all, sty.column__te67Y)}>
           <PlasmicLink__
