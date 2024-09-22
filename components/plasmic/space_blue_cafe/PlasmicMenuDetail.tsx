@@ -581,7 +581,13 @@ function PlasmicMenuDetail__RenderFunc(props: {
                           hasVariant(globalVariants, "screen", "mobileOnly")
                             ? (() => {
                                 try {
-                                  return $ctx.params.meja !== undefined;
+                                  return (
+                                    $ctx.params.meja !== undefined &&
+                                    ($ctx.params.meja === "" ||
+                                      $ctx.params.meja === "value" ||
+                                      $ctx.params.meja === null ||
+                                      $ctx.params.meja === "0")
+                                  );
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
