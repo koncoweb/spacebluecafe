@@ -739,28 +739,6 @@ function PlasmicMenuDetail__RenderFunc(props: {
                   )}
                 </DataCtxReader__>
               }
-              filterField={
-                hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? "nama"
-                  : undefined
-              }
-              filterValue={
-                hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? (() => {
-                      try {
-                        return $ctx.params.menu;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()
-                  : undefined
-              }
               forceEmptyState={false}
               forceLoadingState={false}
               limit={0}
