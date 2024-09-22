@@ -610,7 +610,8 @@ function PlasmicMenuDetail__RenderFunc(props: {
                                   return (
                                     $ctx.params.meja !== "undefined" &&
                                     $ctx.params.meja !== "" &&
-                                    $ctx.params.meja !== null
+                                    $ctx.params.meja !== null &&
+                                    $ctx.params.meja !== "0"
                                   );
                                 } catch (e) {
                                   if (

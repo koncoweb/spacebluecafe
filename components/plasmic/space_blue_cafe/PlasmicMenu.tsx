@@ -639,38 +639,74 @@ function PlasmicMenu__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["updateMeja"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["meja"]
-                                },
-                                operation: 0,
-                                value: $ctx.query.meja
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                        $steps["updateMeja"] =
+                          $ctx.query.meja !== undefined
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["meja"]
+                                  },
+                                  operation: 0,
+                                  value: $ctx.query.meja
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
 
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
                         if (
                           $steps["updateMeja"] != null &&
                           typeof $steps["updateMeja"] === "object" &&
                           typeof $steps["updateMeja"].then === "function"
                         ) {
                           $steps["updateMeja"] = await $steps["updateMeja"];
+                        }
+
+                        $steps["updateMeja2"] =
+                          $ctx.query.meja === undefined
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["meja"]
+                                  },
+                                  operation: 0,
+                                  value: "0"
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateMeja2"] != null &&
+                          typeof $steps["updateMeja2"] === "object" &&
+                          typeof $steps["updateMeja2"].then === "function"
+                        ) {
+                          $steps["updateMeja2"] = await $steps["updateMeja2"];
                         }
 
                         $steps["goToMenuDetail"] = true
