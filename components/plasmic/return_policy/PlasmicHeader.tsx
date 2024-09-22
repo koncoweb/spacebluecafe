@@ -238,7 +238,7 @@ function PlasmicHeader__RenderFunc(props: {
                         const actionArgs = {
                           destination: (() => {
                             try {
-                              return `"/menu?meja=" + $ctx.params.meja`;
+                              return "/menu?meja=" + $ctx.params.meja;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
