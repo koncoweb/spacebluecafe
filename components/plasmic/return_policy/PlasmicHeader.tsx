@@ -203,7 +203,75 @@ function PlasmicHeader__RenderFunc(props: {
                 sty.link__cFkCg
               )}
               component={Link}
-              href={`/menu`}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["goToMenu"] =
+                  $ctx.params.meja === "0"
+                    ? (() => {
+                        const actionArgs = { destination: `/menu` };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["goToMenu"] != null &&
+                  typeof $steps["goToMenu"] === "object" &&
+                  typeof $steps["goToMenu"].then === "function"
+                ) {
+                  $steps["goToMenu"] = await $steps["goToMenu"];
+                }
+
+                $steps["goToPage"] =
+                  $ctx.params.meja !== "0"
+                    ? (() => {
+                        const actionArgs = {
+                          destination: (() => {
+                            try {
+                              return `"/menu?meja=" + $ctx.params.meja`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
+                }
+              }}
               platform={"nextjs"}
             >
               {false ? (
