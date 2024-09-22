@@ -92,10 +92,6 @@ export const PlasmicMenuDetail__ArgProps = new Array<ArgPropType>();
 export type PlasmicMenuDetail__OverridesType = {
   root?: Flex__<"div">;
   header?: Flex__<typeof Header>;
-  section?: Flex__<"section">;
-  cmsDataFetcher?: Flex__<typeof CmsQueryRepeater>;
-  columns?: Flex__<"div">;
-  h1?: Flex__<"h1">;
   menuFooterSpaceblue?: Flex__<typeof MenuFooterSpaceblue>;
   h3?: Flex__<"h3">;
   textInput3?: Flex__<typeof TextInput>;
@@ -349,15 +345,11 @@ function PlasmicMenuDetail__RenderFunc(props: {
           </nav>
           <Stack__
             as={"section"}
-            data-plasmic-name={"section"}
-            data-plasmic-override={overrides.section}
             hasGap={true}
-            className={classNames(projectcss.all, sty.section)}
+            className={classNames(projectcss.all, sty.section__fh4V8)}
           >
             <CmsQueryRepeater
-              data-plasmic-name={"cmsDataFetcher"}
-              data-plasmic-override={overrides.cmsDataFetcher}
-              className={classNames("__wab_instance", sty.cmsDataFetcher)}
+              className={classNames("__wab_instance", sty.cmsDataFetcher__kId)}
               desc={false}
               emptyMessage={
                 <DataCtxReader__>
@@ -448,9 +440,7 @@ function PlasmicMenuDetail__RenderFunc(props: {
               <DataCtxReader__>
                 {$ctx => (
                   <div
-                    data-plasmic-name={"columns"}
-                    data-plasmic-override={overrides.columns}
-                    className={classNames(projectcss.all, sty.columns)}
+                    className={classNames(projectcss.all, sty.columns__lSIs8)}
                   >
                     <div
                       className={classNames(projectcss.all, sty.column__v8WvQ)}
@@ -507,13 +497,11 @@ function PlasmicMenuDetail__RenderFunc(props: {
                         )}
                       >
                         <h1
-                          data-plasmic-name={"h1"}
-                          data-plasmic-override={overrides.h1}
                           className={classNames(
                             projectcss.all,
                             projectcss.h1,
                             projectcss.__wab_text,
-                            sty.h1
+                            sty.h1__zKan9
                           )}
                         >
                           <React.Fragment>
@@ -726,6 +714,267 @@ function PlasmicMenuDetail__RenderFunc(props: {
             </CmsQueryRepeater>
           </Stack__>
           <Stack__
+            as={"section"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.section__pABwA)}
+          >
+            <CmsQueryRepeater
+              className={classNames(
+                "__wab_instance",
+                sty.cmsDataFetcher__gKdEl
+              )}
+              desc={false}
+              emptyMessage={
+                <DataCtxReader__>
+                  {$ctx => (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__tewfX
+                      )}
+                    >
+                      {"No matching published entries found."}
+                    </div>
+                  )}
+                </DataCtxReader__>
+              }
+              filterField={
+                hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? "nama"
+                  : undefined
+              }
+              filterValue={
+                hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? (() => {
+                      try {
+                        return $ctx.params.menu;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  : undefined
+              }
+              forceEmptyState={false}
+              forceLoadingState={false}
+              limit={0}
+              loadingMessage={
+                <DataCtxReader__>
+                  {$ctx => (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___9B9Jf
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return " memuat menu...";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "Loading...";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  )}
+                </DataCtxReader__>
+              }
+              mode={"rows"}
+              noAutoRepeat={false}
+              noLayout={false}
+              useDraft={false}
+            >
+              <DataCtxReader__>
+                {$ctx => (
+                  <div
+                    className={classNames(projectcss.all, sty.columns___16CeI)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.column__icmLd)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToMenuDetail"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: `/menu/detail/${(() => {
+                                  try {
+                                    return $ctx.plasmicCmsSpacebluemenuItem.data
+                                      .nama;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}/${(() => {
+                                  try {
+                                    return $ctx.params.meja;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}`
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToMenuDetail"] != null &&
+                          typeof $steps["goToMenuDetail"] === "object" &&
+                          typeof $steps["goToMenuDetail"].then === "function"
+                        ) {
+                          $steps["goToMenuDetail"] = await $steps[
+                            "goToMenuDetail"
+                          ];
+                        }
+                      }}
+                    >
+                      <PlasmicImg__
+                        alt={(() => {
+                          try {
+                            return $ctx.plasmicCmsSpacebluemenuItem.data.foto
+                              .name;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        className={classNames(sty.img__q8Cs8)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        loading={"lazy"}
+                        src={(() => {
+                          try {
+                            return $ctx.plasmicCmsSpacebluemenuItem.data.foto
+                              .url;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        width={"100%"}
+                      />
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.column__shgWz)}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__pTef
+                        )}
+                      >
+                        <h1
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.h1,
+                            projectcss.__wab_text,
+                            sty.h1__vPvwe
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $ctx.plasmicCmsSpacebluemenuItem.data
+                                  .nama;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "You won't believe what happens next.";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </h1>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___0O0Jb
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (
+                                  "Rp. " +
+                                  $ctx.plasmicCmsSpacebluemenuItem.data.harga
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </Stack__>
+                    </div>
+                  </div>
+                )}
+              </DataCtxReader__>
+            </CmsQueryRepeater>
+          </Stack__>
+          <Stack__
             as={"div"}
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__fFoPr)}
@@ -929,22 +1178,8 @@ function PlasmicMenuDetail__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "header",
-    "section",
-    "cmsDataFetcher",
-    "columns",
-    "h1",
-    "menuFooterSpaceblue",
-    "h3",
-    "textInput3"
-  ],
+  root: ["root", "header", "menuFooterSpaceblue", "h3", "textInput3"],
   header: ["header"],
-  section: ["section", "cmsDataFetcher", "columns", "h1"],
-  cmsDataFetcher: ["cmsDataFetcher", "columns", "h1"],
-  columns: ["columns", "h1"],
-  h1: ["h1"],
   menuFooterSpaceblue: ["menuFooterSpaceblue"],
   h3: ["h3"],
   textInput3: ["textInput3"]
@@ -955,10 +1190,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   header: typeof Header;
-  section: "section";
-  cmsDataFetcher: typeof CmsQueryRepeater;
-  columns: "div";
-  h1: "h1";
   menuFooterSpaceblue: typeof MenuFooterSpaceblue;
   h3: "h3";
   textInput3: typeof TextInput;
@@ -1025,10 +1256,6 @@ export const PlasmicMenuDetail = Object.assign(
   {
     // Helper components rendering sub-elements
     header: makeNodeComponent("header"),
-    section: makeNodeComponent("section"),
-    cmsDataFetcher: makeNodeComponent("cmsDataFetcher"),
-    columns: makeNodeComponent("columns"),
-    h1: makeNodeComponent("h1"),
     menuFooterSpaceblue: makeNodeComponent("menuFooterSpaceblue"),
     h3: makeNodeComponent("h3"),
     textInput3: makeNodeComponent("textInput3"),
