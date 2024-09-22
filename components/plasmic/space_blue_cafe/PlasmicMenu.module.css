@@ -287,7 +287,9 @@
 .product:global(.__wab_instance) {
   width: 100%;
   align-self: flex-start;
+  height: 100%;
   min-width: 0;
+  min-height: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .product:global(.__wab_instance) {
