@@ -286,7 +286,7 @@
 }
 .product:global(.__wab_instance) {
   width: 100%;
-  align-self: flex-start;
+  align-self: stretch;
   height: 100%;
   min-width: 0;
   min-height: 0;
