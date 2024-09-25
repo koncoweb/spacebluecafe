@@ -714,10 +714,8 @@ function PlasmicMenu__RenderFunc(props: {
                               const actionArgs = {
                                 destination: `/menu/${(() => {
                                   try {
-                                    return encodeURIComponent(
-                                      $ctx.plasmicCmsSpacebluemenuItem.data
-                                        .kategori
-                                    );
+                                    return $ctx.plasmicCmsSpacebluemenuItem.data
+                                      .kategori;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
