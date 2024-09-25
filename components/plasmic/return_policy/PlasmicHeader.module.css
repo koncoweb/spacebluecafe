@@ -4,9 +4,9 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: auto;
   max-width: var(--token-VqPv_2huKTXf);
   position: relative;
+  height: auto;
   min-width: 0;
   padding: 0px;
 }
