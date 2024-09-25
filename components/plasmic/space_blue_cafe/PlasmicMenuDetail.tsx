@@ -861,7 +861,21 @@ function PlasmicMenuDetail__RenderFunc(props: {
                         $steps["goToMenuDetail"] = true
                           ? (() => {
                               const actionArgs = {
-                                destination: `/menu/[kategori]/${(() => {
+                                destination: `/menu/${(() => {
+                                  try {
+                                    return $ctx.plasmicCmsSpacebluemenuItem.data
+                                      .kategori;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}/${(() => {
                                   try {
                                     return $ctx.plasmicCmsSpacebluemenuItem.data
                                       .nama;
