@@ -62,12 +62,15 @@ import {
 import Header from "../../Header"; // plasmic-import: 1JDkW8IXziFz/component
 import Button from "../../Button"; // plasmic-import: D4ZoDZu3P2uH/component
 import TextInput from "../../TextInput"; // plasmic-import: uqzitSMnAOoM/component
+import Button2 from "../../Button2"; // plasmic-import: kE1Zhof4yLej/component
 import MenuFooterSpaceblue from "../../MenuFooterSpaceblue"; // plasmic-import: Tfk_MHYXQ-8l/component
 
 import { useScreenVariants as useScreenVariants_8LhMaSoWc2XY } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 8LhMaSOWc2xY/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
+import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
+import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: n5xwmNeXPRzvTsuicaWWu3/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: p45XJpMyAb3L/css
 
@@ -76,6 +79,8 @@ import Facebook176SvgrepoComSvgIcon from "../space_blue_cafe/icons/PlasmicIcon__
 import InstagramSvgrepoComSvgIcon from "../space_blue_cafe/icons/PlasmicIcon__InstagramSvgrepoComSvg"; // plasmic-import: jHXLPhKl-xFT/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: ReynV80Quqvt/icon
 import SearchSvg2Icon from "./icons/PlasmicIcon__SearchSvg2"; // plasmic-import: Np630blK4p0Q/icon
+import UserSvgIcon from "./icons/PlasmicIcon__UserSvg"; // plasmic-import: 16OzevezvZzW/icon
+import Icon38Icon from "../space_blue_cafe/icons/PlasmicIcon__Icon38"; // plasmic-import: UDMMR8l93xcL/icon
 
 createPlasmicElementProxy;
 
@@ -94,6 +99,7 @@ export type PlasmicHomepage__OverridesType = {
   h1?: Flex__<"h1">;
   textInput?: Flex__<typeof TextInput>;
   textInput2?: Flex__<typeof TextInput>;
+  button2?: Flex__<typeof Button2>;
   menuFooterSpaceblue?: Flex__<typeof MenuFooterSpaceblue>;
   h3?: Flex__<"h3">;
   textInput3?: Flex__<typeof TextInput>;
@@ -197,6 +203,8 @@ function PlasmicHomepage__RenderFunc(props: {
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
+            plasmic_antd_5_hostless_css.plasmic_tokens,
+            plasmic_plasmic_rich_components_css.plasmic_tokens,
             sty.root
           )}
         >
@@ -513,8 +521,9 @@ function PlasmicHomepage__RenderFunc(props: {
                   color={
                     hasVariant(globalVariants, "screen", "mobileOnly")
                       ? "blue"
-                      : "link"
+                      : "softSand"
                   }
+                  link={`/menu`}
                   size={"compact"}
                   submitsForm={true}
                 >
@@ -719,6 +728,24 @@ function PlasmicHomepage__RenderFunc(props: {
                     </PlasmicLink__>
                   </Stack__>
                 </Stack__>
+                <Button2
+                  data-plasmic-name={"button2"}
+                  data-plasmic-override={overrides.button2}
+                  className={classNames("__wab_instance", sty.button2)}
+                  link={
+                    "https://studio.plasmic.app/cms/jDq999p1R6ksEPKDMRBkzZ/content/models/jDkWTv2cQMAvx15gVLqYCE/"
+                  }
+                  showStartIcon={true}
+                  startIcon={
+                    <UserSvgIcon
+                      className={classNames(projectcss.all, sty.svg__pAVlO)}
+                      role={"img"}
+                    />
+                  }
+                  target={true}
+                >
+                  {"adm"}
+                </Button2>
               </Stack__>
               <MenuFooterSpaceblue
                 data-plasmic-name={"menuFooterSpaceblue"}
@@ -827,6 +854,7 @@ const PlasmicDescendants = {
     "h1",
     "textInput",
     "textInput2",
+    "button2",
     "menuFooterSpaceblue",
     "h3",
     "textInput3"
@@ -835,6 +863,7 @@ const PlasmicDescendants = {
   h1: ["h1"],
   textInput: ["textInput"],
   textInput2: ["textInput2"],
+  button2: ["button2"],
   menuFooterSpaceblue: ["menuFooterSpaceblue"],
   h3: ["h3"],
   textInput3: ["textInput3"]
@@ -848,6 +877,7 @@ type NodeDefaultElementType = {
   h1: "h1";
   textInput: typeof TextInput;
   textInput2: typeof TextInput;
+  button2: typeof Button2;
   menuFooterSpaceblue: typeof MenuFooterSpaceblue;
   h3: "h3";
   textInput3: typeof TextInput;
@@ -917,6 +947,7 @@ export const PlasmicHomepage = Object.assign(
     h1: makeNodeComponent("h1"),
     textInput: makeNodeComponent("textInput"),
     textInput2: makeNodeComponent("textInput2"),
+    button2: makeNodeComponent("button2"),
     menuFooterSpaceblue: makeNodeComponent("menuFooterSpaceblue"),
     h3: makeNodeComponent("h3"),
     textInput3: makeNodeComponent("textInput3"),
