@@ -852,7 +852,9 @@ function PlasmicMenu__RenderFunc(props: {
                       sty.text__wZMkP
                     )}
                   >
-                    {"Situs Resmi space blue Cafe Batang"}
+                    {
+                      "Halaman menu pada Situs Resmi space blue Cafe Batang\nalamat jalan Yos Sudarso - Batang Jawa Tengah"
+                    }
                   </div>
                   <Stack__
                     as={"div"}
